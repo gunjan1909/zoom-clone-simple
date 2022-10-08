@@ -1,6 +1,6 @@
 # zoom-clone-simple
 
-Simple Zoom Clone using socket.io and WebRTC
+Simple Zoom Clone using socket.io and WebRTC(Runs only in your local although)
 Packages used:
 
 - Express
@@ -15,4 +15,5 @@ Packages used:
 - Clone the repository
 - Run `npm install`
 - Run `npm run devStart`
-- Open `localhost:3000` in your browser
+- In new terminal run `npm i peerjs -g` and `peerjs --port 3001`
+- Open `localhost:3000` in your browser and use same link to join the meeting
