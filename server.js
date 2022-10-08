@@ -17,8 +17,15 @@ app.get("/:room", (req, res) => {
 
 io.on("connection", (socket) => {
   socket.on("join-room", (roomId, userId) => {
-    console.log(roomId, userId);
+    socket.join(roomId);
+    socket.broadcast.to(roomId).emit("user-connected", userId);
+    //socket.to(roomId).emit("user-connected", userId);
+    socket.on("disconnect", () => {
+      socket.broadcast.to(roomId).emit("user-disconnected", userId);
+    });
   });
 });
 
-server.listen(3000);
+server.listen(3000, () => {
+  console.log("Server is running on port 3000");
+});
